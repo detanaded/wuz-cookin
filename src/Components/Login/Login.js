@@ -35,8 +35,8 @@ handleLoginInfoUpdate = (e) => {
     }
   
     render(){
-      console.log('THIS.STATE',this.state)
-      console.log(this.props)
+      // console.log('THIS.STATE',this.state)
+      // console.log(this.props)
       return (
         <FormContainter onSubmit={this.handleUserLogin}>
           <Heading>member sign in</Heading>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { updateUser, clearUser } from '../redux/userReducer'
 import { connect } from 'react-redux'
+import Recipe from './Recipe-Search/RecipeSearch'
 
 class Dashboard extends Component {
 	componentDidMount() {
@@ -26,11 +27,14 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div>
+				<Recipe/>
 				<h1>Dashboard</h1>
-				{this.props.firstname && (
+				{this.props.username && (
 					<>
-						<h3>{this.props.firstname}</h3>
+						<h3>{this.props.username}</h3>
 						<button onClick={this.handleUserLogout}>Logout</button>
+						
+
 					</>
 				)}
 			</div>
