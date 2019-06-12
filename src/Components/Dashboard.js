@@ -29,14 +29,12 @@ class Dashboard extends Component {
 			<div>
 				<Recipe/>
 				<h1>Dashboard</h1>
-				{this.props.username && (
+				{/* {this.props.username && (
 					<>
 						<h3>{this.props.username}</h3>
-						<button onClick={this.handleUserLogout}>Logout</button>
-						
-
 					</>
-				)}
+				)} */}
+					<button onClick={this.handleUserLogout}>Logout</button>
 			</div>
 		)
 	}
