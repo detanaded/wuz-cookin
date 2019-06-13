@@ -4,6 +4,8 @@ import { updateUser, clearUser } from '../redux/userReducer'
 import { connect } from 'react-redux'
 import Recipe from './Recipe-Search/RecipeSearch'
 
+
+
 class Dashboard extends Component {
 	componentDidMount() {
 		axios
@@ -27,8 +29,8 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div>
+			
 				<Recipe/>
-				<h1>Dashboard</h1>
 				{/* {this.props.username && (
 					<>
 						<h3>{this.props.username}</h3>
@@ -55,7 +57,6 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Dashboard)
-
 
 
 
