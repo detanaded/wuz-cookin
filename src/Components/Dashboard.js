@@ -29,7 +29,6 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div>
-			
 				<Recipe/>
 				{/* {this.props.username && (
 					<>
