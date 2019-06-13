@@ -4,6 +4,7 @@ const express = require('express'),
       session = require('express-session'),
       auth = require('./controllers/auth'),
       recipe = require('./controllers/recipe')
+      
 const{SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
 
 
@@ -33,3 +34,4 @@ app.post('/auth/login', auth.login)
 app.get('/auth/user', auth.getUser)
 app.get('/auth/logout', auth.logout)
 app.get('/recipe', recipe.getRecipe )
+app.post('/favorites/add', recipe.addToFavorites)

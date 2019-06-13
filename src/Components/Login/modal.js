@@ -3,10 +3,11 @@ import Modal from 'react-awesome-modal';
 import Login from './Login'
 import Register from './Register'
 import './modal.css'
+import {connect} from 'react-redux'
 
 
 
-export default class PopUp  extends Component {
+class PopUp  extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,9 +28,15 @@ export default class PopUp  extends Component {
     }
  
     render() {
+        console.log(this.props)
         return (
             <section>
-                <input type="button" value="Login/Register" onClick={() => this.openModal()} />
+                {
+                    this.props.username ==='' ? 
+                    <input type="button" value="Login/Register" onClick={() => this.openModal()} />
+                    :
+                    null
+                }
                 
                 <Modal visible={this.state.visible} width="500" height="400" onClickAway={() => this.closeModal()}>
                     <div className='modal'>
@@ -45,9 +52,13 @@ export default class PopUp  extends Component {
     }
 }
 
-
+function mapStateToProps(state){
+    return state
+}
 
 // const Para = styled.p`
 // display: flex;
 // flex-direction: column
 // align-items: center;`
+
+export default connect(mapStateToProps)(PopUp) 

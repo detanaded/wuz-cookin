@@ -7,13 +7,15 @@ import './Carousel.css'
 import {device} from '../MediaQueries'
 
 
+
 class DemoCarousel extends Component {
     render() {
         return (
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Carousel  interval={4000} autoPlay showArrows infiniteLoop showStatus={false} dynamicHeight={true} showThumbs={false}>
+          <div>
+            <Carousel interval={4000} autoPlay showArrows infiniteLoop showStatus={false} showThumbs={false}>
                 <div>
-                    <img height='475px' alt='Cook table' src= {require('../../Assets/CookTable.jpg')}/>
+                    {/* <div style={{height: '100vh', width: '100%', backgroundImage: `url('../../Assets/CookTable.jpg')`, backgroundSize: 'cover'}} className='imagetest'></div> */}
+                    <Images alt='Cook table' src= {require('../../Assets/CookTable.jpg')}/>
                     <Centered> <H1>Discover</H1>
                         <div className='slidingVertical'>
                             <Span>recipes</Span>
@@ -22,7 +24,7 @@ class DemoCarousel extends Component {
                     
                 </div>
                 <div>
-                    <img height='450px' alt='Sandwich Dish' src= {require('../../Assets/VegetableTable.jpg')} />
+                    <Images alt='Sandwich Dish' src= {require('../../Assets/VegetableTable.jpg')} />
                     <Centered> 
                         <H1>Discover</H1>
                         <div className='foods1'>
@@ -31,7 +33,7 @@ class DemoCarousel extends Component {
                     </Centered>
                 </div>
                 <div>
-                    <img height= '450px' alt='Hamburger Dish' src={require('../../Assets/Hamburger.jpg')}/>
+                    <Images alt='Hamburger Dish' src={require('../../Assets/Hamburger.jpg')}/>
                     <Centered>
                         <H1>Discover</H1>
                         <div className='foods2'>
@@ -40,15 +42,15 @@ class DemoCarousel extends Component {
                         </Centered>
                 </div>
                 <div>
-                    <img height='425px' alt='Pasta Dish' src={require('../../Assets/PastaDish.jpg')}/>
+                    <Images alt='Pasta Dish' src={require('../../Assets/PastaDish.jpg')}/>
                     <Centered> <H1>Discover</H1>
                         <div className='foods3'>
-                            <Span>techniques</Span>
+                            <Span>favorites</Span>
                         </div>
                     </Centered>
                 </div>
                 <div>
-                    <img height='425px' alt='Roasted Chicken' src={require('../../Assets/Chicken.jpg')}/>
+                    <Images alt='Roasted Chicken' src={require('../../Assets/ChickenParsley.jpg')}/>
                     <Centered>
                         <H1>Discover</H1>
                         <div className="foods4">
@@ -65,11 +67,7 @@ class DemoCarousel extends Component {
 export default DemoCarousel
 
 
-// const MobileImage =styled.img`
-// @media ${device.mobileS}{
-//     height: 200px;
-// }
-// `
+
 
 const Centered = styled.div`
 position: absolute;
@@ -91,6 +89,11 @@ text-transform: uppercase;
     font-size: 2.5em;
     font-weight: bold;
     letter-space: .0125em;
+},
+@media ${device.mobileM}{
+    font-size: 1em;
+    font-weight: bold;
+    letter-space: .0125em;
 }
 
 `
@@ -109,4 +112,8 @@ text-transform: uppercase;
     letter-space: .0125em;
 }
 `
-
+ const Images = styled.img`
+ @media ${device.mobileM}{
+     height: 50px
+ }
+ `
