@@ -1,0 +1,1 @@
+update users where user_id =$1;
