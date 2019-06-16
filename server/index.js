@@ -3,7 +3,8 @@ const express = require('express'),
       massive = require('massive'),
       session = require('express-session'),
       auth = require('./controllers/auth'),
-      recipe = require('./controllers/recipe')
+      favorite = require('./controllers/recipe'),
+      recipe = require('./controllers/recipe_ctrl')
       
 const{SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
 
@@ -16,7 +17,7 @@ app.use(session({
   saveUninitialized: false,
   resave: false,
   cookie: {
-    maxAge: 1000 * 60 * 60
+    maxAge: 1000*60*60
   }
 }))
 
@@ -28,12 +29,23 @@ massive(CONNECTION_STRING).then((database) =>{
   console.log('Pepebase Set!')
   app.listen(SERVER_PORT, () => {console.log(`Pepe Memin on ${SERVER_PORT} ✌️!`)})
 })
-
+// Auth Endpoints for Reg/Login
 app.post('/auth/register', auth.register)
 app.post('/auth/login', auth.login)
 app.get('/auth/user', auth.getUser)
 app.get('/auth/logout', auth.logout)
-app.get('/recipe', recipe.getRecipe )
-app.post('/favorites/add', recipe.addToFavorites)
-app.delete('/auth/user', auth.deleteUser)
-app.put('/auth/user',auth.updateUser)
+app.get('/recipe', favorite.getRecipe )
+app.post('/favorites/add', favorite.addToFavorites)
+app.get('/favorites', favorite.getFavorites)
+
+
+// Endpoints for Recipes
+
+app.get('/api/recipes',recipe.getRecipes)
+app.put('/api/update', recipe.updateRecipe)
+app.delete('/api/recipes', recipe.deleteRecipe)
+app.post('/api/addrecipe', recipe.addRecipe)
+
+// Endpoint for Admin
+
+app.get('/api/recipes/admin', recipe.getAdmin)

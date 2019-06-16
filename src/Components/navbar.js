@@ -2,8 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './navbar.css'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import Modal from './Login/modal'
+import {Nav} from './NavbarStyle'
 
 
 
@@ -11,9 +12,11 @@ const Navbar = ({ username }) => {
 	return (
 		<Nav>
 			<Link to='/'>Home</Link>
+			<Link to='/favorites'>Favorites</Link>
 			<Modal/>
 			{/* <Link to='/login'>Login</Link> */}
-			<span>{username && username}</span>
+			<Link to= '/profile'>{username && username}</Link>
+			<Link to= '/dashboard'>Dashboard</Link>
 		</Nav>
 	)
 }
@@ -29,12 +32,3 @@ export default connect(mapStateToProps)(Navbar)
 
 
 
-
-const Nav = styled.nav`
-
-width: 100vw
-height: 60px;
-display:flex;
-align-items: center;
-justify-content: flex-end;
-`

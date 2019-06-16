@@ -1,2 +1,2 @@
 select * from users
-where email = ${email}
+where email = $1

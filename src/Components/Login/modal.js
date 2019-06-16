@@ -4,6 +4,8 @@ import Login from './Login'
 import Register from './Register'
 import './modal.css'
 import {connect} from 'react-redux'
+// import styled from 'styled-components'
+// import {device} from '../MediaQueries'
 
 
 
@@ -62,3 +64,4 @@ function mapStateToProps(state){
 // align-items: center;`
 
 export default connect(mapStateToProps)(PopUp) 
+

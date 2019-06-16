@@ -4,6 +4,7 @@ import Carousel from './Carousel/Carousel'
 
 
 
+
 export default class Home extends Component {
   render() {
     return (
@@ -11,6 +12,7 @@ export default class Home extends Component {
         {/* <button onClick={this.props.history.push('/recipesearch')}>Recipe</button> */}
         <Carousel/>
       </div>
+      
     )
   }
 }

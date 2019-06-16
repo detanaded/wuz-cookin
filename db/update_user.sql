@@ -1,1 +1,1 @@
-update users where user_id =$1;
+-- update users where user_id =$1;

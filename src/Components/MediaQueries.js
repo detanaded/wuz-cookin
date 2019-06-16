@@ -9,11 +9,11 @@ const size = {
 }
 
 export const device ={
-  mobileS: `(max-width: ${size.mobileS})`,
-  mobileM: `(max-width: ${size.mobileM})`,
-  mobileL: `(max-width: ${size.mobileL})`,
-  tablet: `(max-width: ${size.tablet})`,
-  laptopL:`(max-width: ${size.laptopL})`, 
-  laptop: `(max-width: ${size.laptop})`,
-  desktop: `(max-width: ${size.desktop})`
+  mobileS: `(min-width: ${size.mobileS})`,
+  mobileM: `(min-width: ${size.mobileM})`,
+  mobileL: `(min-width: ${size.mobileL})`,
+  tablet: `(min-width: ${size.tablet})`,
+  laptopL:`(min-width: ${size.laptopL})`, 
+  laptop: `(min-width: ${size.laptop})`,
+  desktop: `(min-width: ${size.desktop})`
 }

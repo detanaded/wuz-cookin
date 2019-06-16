@@ -17,7 +17,7 @@ module.exports = {
       password: hash
     });
     session.user = {
-      id: createdUser[0].login_id,
+      id: createdUser[0].user_id,
       username: createdUser[0].username
     };
     res.status(200).send(session.user);
@@ -27,11 +27,12 @@ module.exports = {
     const db = req.app.get("db");
     const { session } = req;
     const userFound = await db.check_username({ username });
+    
     if (!userFound[0]) return res.status(401).send("User does not exist");
     const authenticated = bcrypt.compareSync(password, userFound[0].password);
     if (authenticated) {
       session.user = {
-        id: userFound[0].login_id,
+        id: userFound[0].user_id,
         username: userFound[0].username
       };
       res.status(200).send(session.user);

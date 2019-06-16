@@ -14,7 +14,7 @@ class Dashboard extends Component {
 				this.props.updateUser(res.data)
 			})
 			.catch((err) => {
-				this.props.history.push('/login')
+				console.log(err)
 			})
 	}
 

@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import styled from "styled-components";
-// import {Link} from 'react-router-dom'
-// import { device } from "../MediaQueries";
+import { Images, Container, H1, Box } from "./DashboardStyle";
 
-const{REACT_APP_KEY}=process.env
-
+const { REACT_APP_KEY } = process.env;
 
 export default class Recipe extends Component {
   constructor() {
@@ -18,10 +15,10 @@ export default class Recipe extends Component {
   }
   componentDidMount() {
     // Getting the recipes from the API
-    console.log(process.env)
+    console.log(process.env);
     axios
       .get("/recipe")
-      // .then retruns a promise
+      // .then returns a promise
       .then(res => {
         // stores date in recipes
         this.setState({
@@ -35,47 +32,53 @@ export default class Recipe extends Component {
   };
 
   handleKeyPress = e => {
-    if(e.which === 13){
-      this.handleButtonClick()
+    if (e.which === 13) {
+      this.handleButtonClick();
     }
-  }
-
+  };
 
   handleButtonClick = () => {
     const url = `https://www.food2fork.com/api/search?key=${REACT_APP_KEY}&q=${
       this.state.userInput
     }&page=1`;
 
-    axios.get(url).then(response => this.setState({ recipes: response.data.recipes }));
+    axios
+      .get(url)
+      .then(response => this.setState({ recipes: response.data.recipes }));
   };
 
- addTofavorites =(recipe) => {
-    axios.post('/favorites/add', {recipe}).then(response => {console.log(response.data)})
-  }
-
+  addTofavorites = recipe => {
+    axios.post("/favorites/add", { recipe }).then(response => {
+      console.log(response.data);
+    });
+  };
 
   render() {
     // maps over the recipe array stored on state and returns jsx
     const recipeDisplay = this.state.recipes.map((recipe, i) => {
       return (
         // Displays recipe title.
-        <div key={i}>
-          <h1>{recipe.title}</h1>
-          <img src={recipe.image_url} alt="" />
+        <Container key={i}>
+          <Box>
+          <H1>{recipe.title}</H1>
+          <Images src={recipe.image_url} alt="" />
           <a href={recipe.source_url}>
             <button>View Recipe</button>
-            
           </a>
-          <button onClick={()=>this.addTofavorites(recipe)}>Favorite</button>
-        </div>
+          <button onClick={() => this.addTofavorites(recipe)}>Favorite</button>
+          </Box>
+        </Container>
       );
     });
 
     return (
       <div>
-        <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder='Search over 1,000,000 recipes...'/>
+        <input
+          onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
+          placeholder="Search over 1,000,000 recipes..."
+        />
         <button onClick={this.handleButtonClick}>Submit</button>
-      
 
         {recipeDisplay}
       </div>
