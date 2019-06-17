@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.1.1",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.5",
@@ -23,6 +24,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-scroll-parallax": "^2.1.2",
+    "react-sticky-nav": "^3.1.8",
     "redux": "^4.0.1",
     "styled-components": "^4.3.1"
   },
