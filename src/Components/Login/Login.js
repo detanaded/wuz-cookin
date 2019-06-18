@@ -25,7 +25,7 @@ handleLoginInfoUpdate = (e) => {
     
       axios.post('/auth/login', {username, password}).then((res) => {
        this.props.closeModal()
-        // this.props.history.push('/add')
+        this.props.history.push('/add')
       })
       .catch((err) => {
         console.log(err)

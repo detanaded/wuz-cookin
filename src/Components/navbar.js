@@ -9,7 +9,7 @@ import {Nav} from './NavbarStyle'
 const Navbar = ({ username }) => {
 	return (
 		<Nav>
-			<Link to='/'>Home</Link>
+			<Link style={{textDecoration: 'none'}} to='/'>Home</Link>
 			<Link to='/favorites'>Favorites</Link>
 			<Modal/>
 			{/* <Link to='/login'>Login</Link> */}

@@ -25,21 +25,23 @@ export default class Home extends Component {
         <Body2>
           <div>
             <Titlespan>add your favorites</Titlespan>
-            <Tp>Use the favorite button to add and recipes to your profile.</Tp>
+            <Tp>Use the favorite button to add and recipes to your profile!</Tp>
           </div>
           <div><Titlespan>inspire yourself</Titlespan>
-            <Tp>don't know where to start? sign up and start searching for that one recipe</Tp>
+            <Tp>Don't know where to start? Sign up and start searching for that one recipe</Tp>
           </div>
           <div>
             <Titlespan>search 1m+ recipes</Titlespan>
-            <Tp>search over 1 million recipes based on any keyword used</Tp>
+            <Tp>Search over 1 million recipes based on any keyword used</Tp>
           </div>
         </Body2>
         <Body3>
         <H12>Cook</H12>
         <GreyP>5-ingredient cheesecake</GreyP>
         <LightP>preheating 125 &deg;F </LightP>
-          <video className="cooking-video" type="video/mp4" src="https://x.yummlystatic.com/s/c6b611fb7/img/homePromo/step-by-step.mp4" autoplay="" loop=" " playsinline=""></video>
+          <video className="cooking-video" type="video/mp4" src="https://x.yummlystatic.com/s/c6b611fb7/img/homePromo/step-by-step.mp4" autoPlay="" loop=" " playsInline=""></video>
+          <GreyP>step 2 of 8</GreyP>
+          <Tp>Add the sour cream and vanillia extract to the bowl. Continue to beat on medium-high speed for 1-2 minutes to fully incorporate the sour cream.</Tp>
         </Body3>
       </div>
       
@@ -130,6 +132,7 @@ font-weight: 700;
 
 
 const Tp = styled.p`
+
 `
 
 const Style = styled.style`
@@ -172,5 +175,3 @@ text-transform: capitalize;
 
 
 
-// step 2 of 8
-// add the sour cream and vanillia extract to the tsBooleanKeyword. continue to beat on medium- high speed for 1-2 minutes to fully incorporate the sour cream

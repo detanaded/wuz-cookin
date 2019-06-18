@@ -2,15 +2,23 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {updateFavorites} from '../../redux/favoritesReducer'
-import { Images, Container, H1, Box } from "../Recipe-Search/DashboardStyle";
+// import { Images, Container, H1, Box } from "../Recipe-Search/DashboardStyle";
+import GrabFavorite from './GrabFavorite'
 
 class Favorites extends Component {
+  constructor(){
+    super()
+      this.state = {
+        favorites: []
+      }
+    }
   componentWillMount(){
     axios
-    .get('/favorites')
+    .get('/api/favorites')
     .then((res) => {
-      this.props.updateFavorites(res.data)
-      console.log(res.data)
+      this.setState({
+        favorites: res.data
+      })
     })
     .catch((err)=> {
       console.log(err)
@@ -19,25 +27,14 @@ class Favorites extends Component {
 
 
   render() {
-    console.log(this.props)
-    const recipeDisplay = this.props.favorites.map((recipe, i) => {
+    const favoriteDisplay = this.state.favorites.map((recipe, i) => {
       return (
-        // Displays recipe title.
-        <Container key={i}>
-          <Box>
-          <H1>{recipe.title}</H1>
-          <Images src={recipe.image_url} alt="" />
-          <a href={recipe.source_url}>
-            <button>View Recipe</button>
-          </a>
-          <button onClick={() => this.addTofavorites(recipe)}>Favorite</button>
-          </Box>
-        </Container>
-      );
-    });
+        <GrabFavorite key={i} recipe_id={recipe.recipe_id}/> 
+    )})
+    
     return (
       <div>
-        {recipeDisplay}
+        {favoriteDisplay}
       </div>
     )
   }
@@ -54,3 +51,8 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Favorites)
+
+
+
+
+

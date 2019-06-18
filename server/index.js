@@ -36,7 +36,9 @@ app.get('/auth/user', auth.getUser)
 app.get('/auth/logout', auth.logout)
 app.get('/recipe', favorite.getRecipe )
 app.post('/favorites/add', favorite.addToFavorites)
-app.get('/favorites', favorite.getFavorites)
+app.get('/api/favorites/:recipe', favorite.grabFavorite)
+app.get('/api/favorites', favorite.getFavorites)
+
 
 
 // Endpoints for Recipes
@@ -49,3 +51,12 @@ app.post('/api/addrecipe', recipe.addRecipe)
 // Endpoint for Admin
 
 app.get('/api/recipes/admin', recipe.getAdmin)
+
+
+
+
+const path = require('path'); // Usually moved to the start of file
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
