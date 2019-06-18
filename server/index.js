@@ -8,8 +8,8 @@ const express = require("express"),
 
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 
-app.use(express.static(`${__dirname}/../build`));
 const app = express();
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
 app.use(
