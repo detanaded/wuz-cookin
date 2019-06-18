@@ -8,7 +8,6 @@ import './Home/Home.css'
 
 
 
-
 export default class Home extends Component {
   render() {
     return (
@@ -39,7 +38,7 @@ export default class Home extends Component {
         <H12>Cook</H12>
         <GreyP>5-ingredient cheesecake</GreyP>
         <LightP>preheating 125 &deg;F </LightP>
-          <video className="cooking-video" type="video/mp4" src="https://x.yummlystatic.com/s/c6b611fb7/img/homePromo/step-by-step.mp4" autoPlay="" loop=" " playsInline=""></video>
+          <video className="cooking-video" type="video/mp4" src={require(`../Assets/step-by-step.mp4`)} autoPlay="true" loop="true" playsInline=""></video>
           <GreyP>step 2 of 8</GreyP>
           <Tp>Add the sour cream and vanillia extract to the bowl. Continue to beat on medium-high speed for 1-2 minutes to fully incorporate the sour cream.</Tp>
         </Body3>
@@ -57,7 +56,7 @@ flex-direction: column
 text-align: center;
 @media${device.mobileS}{
 height: 400px;
-width: 100vw;
+width: 100%;
 }
 `
 
@@ -113,7 +112,7 @@ opacity: 0.5
 const Body2 = styled.div`
 @media ${device.mobileS}{
 height: 300px;
-width: 100vw;
+width: 100%;
 // background-color: aqua;
 display:flex;
 align-items: center;
@@ -153,7 +152,7 @@ align-items: center;
 flex-direction: column
 text-align: center;
 height: 350px;
-width: 100vw;
+width: 100%;
 `
 
 const H12 = styled.h1`
