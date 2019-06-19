@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Axios from 'axios';
+import {Images, Container, Title, Desc, Body} from './AdminStyle'
+import './Style.css'
 
 class AdminPage extends Component {
   constructor(){
@@ -21,10 +23,13 @@ class AdminPage extends Component {
   render() {
     return this.state.userRecipes.map( (recipes, i) =>{
       return (
-        <div key={i}>
-          <h4>{recipes.username}</h4>
-          <p>{recipes.name}{recipes.image}</p>
-        </div>
+        <Body>
+        <Container key={i}>
+          <Title>{recipes.username}</Title>
+          <Desc>{recipes.name}</Desc>
+          <img alt="Recipe" width='90%'height='60%'  src={recipes.image}/>
+        </Container>
+        </Body>
       )
     })
    

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
+import AdminPage from '../Admin/AdminPage'
+import {Inputs} from './AddStyle'
 
 class RecipeDisplay extends Component {
   constructor() {
@@ -56,30 +58,30 @@ class RecipeDisplay extends Component {
       <div>
         <h1>Add Recipe</h1>
         <form onSubmit={this.inputRecipe}>
-          <input
+          <Inputs
             type="text"
             name="name"
-            placeholder="Recipe Name"
+            placeholder="Name"
             onChange={this.recipeUpdate}
           />
-          <input
+          <Inputs
             type="text"
             name="image"
-            placeholder="Add Image URL"
+            placeholder="Image URL"
             onChange={this.recipeUpdate}
           />
 
-          <input
+          <Inputs
             type="text"
             name="ingredients"
-            placeholder="Add Ingredients"
+            placeholder="Ingredients"
             onChange={this.recipeUpdate}
           />
 
-          <input
+          <Inputs
             type="text"
             name="directions"
-            placeholder="Add Directions"
+            placeholder="Directions"
             onChange={this.recipeUpdate}
           />
           <button type="reset" value="Reset" onClick={this.cancelRecipe}>
@@ -87,6 +89,7 @@ class RecipeDisplay extends Component {
           </button>
           <button type="submit">Add Recipe</button>
         </form>
+        <div><AdminPage/></div>
       </div>
     );
   }

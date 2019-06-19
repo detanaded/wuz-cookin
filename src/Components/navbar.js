@@ -10,11 +10,11 @@ function Navbar(props) {
   return (
     <Nav>
       {/* <Link style={{textDecoration: 'none'}} to='/'>Home</Link> */}
-      {props.username ? <Link to="/favorites">Favorites</Link> : null}
+      {props.username ? <Link className="fav" to="/favorites">Favorites</Link> : null}
      {props.username ?  null: <Modal />}
       {/* <Link to='/login'>Login</Link> */}
-      {props.username ? <Link to="/profile">Profile</Link> : null}
-      {props.username ? <Link to="/dashboard">Dashboard</Link> : null}
+      {props.username ? <Link className="add" to='/add'>Add Recipes</Link> : null}
+       {props.username ? <Link className='dash' to="/dashboard">Dashboard</Link> : null}
     </Nav>
   );
 }

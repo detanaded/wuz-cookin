@@ -8,7 +8,7 @@ const{REACT_APP_KEY} = process.env
 
 module.exports = {
   getRecipe: async (req, res) => {
-    let result = await axios.get(`http://www.food2fork.com/api/search?key=${REACT_APP_KEY}&count=1&q=`).then(res => res.data)
+    let result = await axios.get(`http://www.food2fork.com/api/search?key=${REACT_APP_KEY}&count=20&q=`).then(res => res.data)
     console.log(result)
     res.status(200).send(result)
   },

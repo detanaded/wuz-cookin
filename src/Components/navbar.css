@@ -1,0 +1,26 @@
+.dash {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+}
+.dash:hover {
+  color: purle;
+}
+
+.add {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.fav {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+}

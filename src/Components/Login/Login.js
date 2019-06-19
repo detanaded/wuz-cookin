@@ -31,7 +31,7 @@ class Login extends Component {
       .then(res => {
         this.props.updateUser(res.data.username)
         this.props.closeModal();
-        this.props.history.push("/add");
+        this.props.history.push("/admin");
       })
       .catch(err => {
         console.log(err);
@@ -59,13 +59,8 @@ class Login extends Component {
           placeholder="Password"
           onChange={this.handleLoginInfoUpdate}
         />
-        <Containerbtn>
-          <WrapBtn>
-            <BtnRgb>
           <FormBtn>Login</FormBtn>
-          </BtnRgb>
-          </WrapBtn>
-        </Containerbtn>
+          
       </FormContainter>
     );
   }

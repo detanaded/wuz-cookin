@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 // import {device} from './MediaQueries'
 
 export const Nav = styled.nav`
@@ -8,6 +8,9 @@ height: 60px;
 display:flex;
 align-items: center;
 justify-content: flex-end;
-background-color: black;
+background: black
+opaticy: 0.5;
 }
-`
+`;
+
+

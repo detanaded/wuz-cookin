@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Images, Container, H1, Box } from "./DashboardStyle";
+import { Images, Container, S1, Box, Favorite, View, Submit, Search } from "./DashboardStyle";
 
 const { REACT_APP_KEY } = process.env;
 
@@ -13,7 +13,7 @@ export default class Recipe extends Component {
       userInput: ""
     };
   }
-  componentDidMount() {
+  componentDidMount() { 
     // Getting the recipes from the API
     console.log(process.env);
     axios
@@ -60,12 +60,12 @@ export default class Recipe extends Component {
         // Displays recipe title.
         <Container key={i}>
           <Box>
-          <H1>{recipe.title}</H1>
+          <S1>{recipe.title}</S1>
           <Images src={recipe.image_url} alt="" />
           <a href={recipe.source_url}>
-            <button>View Recipe</button>
+            <View>View Recipe</View>
           </a>
-          <button onClick={() => this.addTofavorites(recipe)}>Favorite</button>
+          <Favorite onClick={() => this.addTofavorites(recipe)}>Favorite</Favorite>
           </Box>
         </Container>
       );
@@ -73,12 +73,12 @@ export default class Recipe extends Component {
 
     return (
       <div>
-        <input
+        <Search
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
-          placeholder="Search over 1,000,000 recipes..."
+          placeholder="Search Recipes"
         />
-        <button onClick={this.handleButtonClick}>Submit</button>
+        <Submit onClick={this.handleButtonClick}>Submit</Submit>
 
         {recipeDisplay}
       </div>
