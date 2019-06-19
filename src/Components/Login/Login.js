@@ -4,6 +4,10 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { device } from "../MaxMedia";
 import {Heading, FormBtn, FormContainter, LoginInput, Logo, Containerbtn,WrapBtn,BtnRgb} from './LoginStyle'
+import {updateUser} from '../../redux/userReducer'
+import {connect} from 'react-redux'
+
+
 class Login extends Component {
   constructor() {
     super();
@@ -25,6 +29,7 @@ class Login extends Component {
     axios
       .post("/auth/login", { username, password })
       .then(res => {
+        this.props.updateUser(res.data.username)
         this.props.closeModal();
         this.props.history.push("/add");
       })
@@ -67,4 +72,4 @@ class Login extends Component {
 }
 
 
-export default withRouter(Login);
+export default withRouter(connect(null,{updateUser})(Login));
