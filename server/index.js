@@ -4,12 +4,14 @@ const express = require("express"),
   session = require("express-session"),
   auth = require("./controllers/auth"),
   favorite = require("./controllers/recipe"),
-  recipe = require("./controllers/recipe_ctrl");
+  recipe = require("./controllers/recipe_ctrl"),
+  path = require("path")
 
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 
 const app = express();
 app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../src/Assets`))
 app.use(express.json());
 
 app.use(
@@ -51,4 +53,3 @@ app.post("/api/addrecipe", recipe.addRecipe);
 
 app.get("/api/recipes/admin", recipe.getAdmin);
 
-const path = require("path"); // Usually moved to the start of file

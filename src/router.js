@@ -8,6 +8,8 @@ import Favorites from './Components/Profile/favorites';
 import AddRecipe from './Components/Recipes/AddRecipe'
 import RecipeDisplay from './Components/Recipes/RecipeDisplay'
 import AdminPage from './Components/Admin/AdminPage';
+import Login from './Components/Login/Login';
+import Register from './Components/Login/Register';
 
 export default (
 	<Switch>
@@ -19,5 +21,7 @@ export default (
 		<Route path='/add' component={AddRecipe}/>
 		<Route path='/display' component={RecipeDisplay}/>
 		<Route path='/admin' component={AdminPage}/>
+		<Route path='/login' component = {Login}/>
+		<Route path='/register' component = {Register}/>
 	</Switch>
 )
