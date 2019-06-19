@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
 import AdminPage from '../Admin/AdminPage'
-import {Inputs} from './AddStyle'
+import {Inputs, Form, Button1} from './AddStyle'
 
 class RecipeDisplay extends Component {
   constructor() {
@@ -57,7 +57,7 @@ class RecipeDisplay extends Component {
     return (
       <div>
         <h1>Add Recipe</h1>
-        <form onSubmit={this.inputRecipe}>
+        <Form onSubmit={this.inputRecipe}>
           <Inputs
             type="text"
             name="name"
@@ -84,11 +84,11 @@ class RecipeDisplay extends Component {
             placeholder="Directions"
             onChange={this.recipeUpdate}
           />
-          <button type="reset" value="Reset" onClick={this.cancelRecipe}>
+          <Button1 type="reset" value="Reset" onClick={this.cancelRecipe}>
             Cancel
-          </button>
-          <button type="submit">Add Recipe</button>
-        </form>
+          </Button1>
+          <Button1 type="submit">Add Recipe</Button1>
+        </Form>
         <div><AdminPage/></div>
       </div>
     );

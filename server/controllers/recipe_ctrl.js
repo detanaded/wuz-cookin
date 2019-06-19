@@ -39,8 +39,8 @@ module.exports = {
 
   deleteRecipe: async (req, res) => {
     const db = req.app.get("db");
-    const { recipe_id } = req.query;
-    await db.delete_recipe({ recipe_id });
+    const {id} = req.params;
+    await db.delete_recipe({ recipe_id: id });
 
     res.status(200).send("Removed Recipe!");
   },

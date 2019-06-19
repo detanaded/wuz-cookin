@@ -46,7 +46,7 @@ app.get("/api/favorites", favorite.getFavorites);
 
 app.get("/api/recipes", recipe.getRecipes);
 app.put("/api/update", recipe.updateRecipe);
-app.delete("/api/recipes", recipe.deleteRecipe);
+app.delete("/api/recipes/:id", recipe.deleteRecipe);
 app.post("/api/addrecipe", recipe.addRecipe);
 
 // Endpoint for Admin

@@ -31,7 +31,7 @@ class Login extends Component {
       .then(res => {
         this.props.updateUser(res.data.username)
         this.props.closeModal();
-        this.props.history.push("/admin");
+        this.props.history.push("/dashboard");
       })
       .catch(err => {
         console.log(err);
